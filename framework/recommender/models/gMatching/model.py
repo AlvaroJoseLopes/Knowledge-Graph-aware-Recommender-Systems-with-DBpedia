@@ -30,3 +30,10 @@ class GMatching(Recommender):
 
         self._embedding_model = getattr(importlib.import_module(module_name), class_name)
         self._embedding_model = self._embedding_model(self.embedding_config, **self.embedding_kwargs)
+
+        self._embedding_model.train(G_train, ratings_train)
+
+        self.fit()
+
+    def fit(self):
+        pass
